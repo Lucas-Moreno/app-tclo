@@ -40,6 +40,7 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
+<<<<<<< HEAD
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
@@ -48,3 +49,13 @@ jobs:
           slot-name: "production"
           publish-profile: ${{ secrets.AzureAppService_PublishProfile_b116fe89a0d74875b6ef4cf084e6fa7f }}
           images: "index.docker.io/${{ secrets.AzureAppService_ContainerUsername_56e3a49be1b940e69ea7991d73640cfe }}/lucasmoreno82/app-tclo:${{ github.sha }}"
+=======
+    - name: Deploy to Azure Web App
+      id: deploy-to-webapp
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'tclo-app'
+        slot-name: 'production'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_5d8bed5adc4447c3b2cf783d7e40a29c }}
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_421fd8e9d8b54e97ba7eed6d4acd1bc9 }}/lucasmoreno82/app-tclo:${{ github.sha }}'
+>>>>>>> 047d03d9896272e3dd0e8499c8ba73fcd3c664b0

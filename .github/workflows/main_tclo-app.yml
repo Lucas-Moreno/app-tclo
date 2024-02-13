@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://index.docker.io/v1/
-        username: ${{ secrets.AzureAppService_ContainerUsername_56e3a49be1b940e69ea7991d73640cfe }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_8914768b357a4cb7acb96d2488b06626 }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_421fd8e9d8b54e97ba7eed6d4acd1bc9 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_3ee7afb1e83b47f48b781f16307070be }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_56e3a49be1b940e69ea7991d73640cfe }}/lucasmoreno82/app-tclo:${{ github.sha }}
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_421fd8e9d8b54e97ba7eed6d4acd1bc9 }}/lucasmoreno82/app-tclo:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'tclo-app'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_b116fe89a0d74875b6ef4cf084e6fa7f }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_56e3a49be1b940e69ea7991d73640cfe }}/lucasmoreno82/app-tclo:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_5d8bed5adc4447c3b2cf783d7e40a29c }}
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_421fd8e9d8b54e97ba7eed6d4acd1bc9 }}/lucasmoreno82/app-tclo:${{ github.sha }}'

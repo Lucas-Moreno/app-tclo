@@ -1,0 +1,7 @@
+version: "3"
+services:
+  service-front:
+    image: lucasmoreno82/app-tclo:v1.0.0
+    container_name: service-front
+    ports:
+      - "80:80"

@@ -1,27 +1,22 @@
-import {
-  Lock as LockIcon,
-  Visibility,
-  VisibilityOff,
-} from "@mui/icons-material";
-import {
-  TextField,
-  Container,
-  Box,
-  Icon,
-  Typography,
-  Button,
-  Link,
-  AlertMessage,
-  InputAdornment,
-  FormControlLabel,
-  Checkbox,
-} from "../composants";
-import { colors } from "../theme/VariablesTheme";
-import { useNavigate } from "react-router-dom";
-import { useForm, useAlert, useErrorHandling, useToggle } from "../hooks";
-import { signin } from "../services/authService";
+import { Lock as LockIcon } from "@mui/icons-material";
 import { AxiosError } from "axios";
+import { useNavigate } from "react-router-dom";
+import {
+  AlertMessage,
+  Box,
+  Button,
+  Checkbox,
+  Container,
+  FormControlLabel,
+  Icon,
+  Link,
+  TextField,
+  Typography,
+} from "../composants";
+import { useAlert, useErrorHandling, useForm } from "../hooks";
 import { useAuth } from "../middlewares/AuthContext";
+import { signin } from "../services/authService";
+import { colors } from "../theme/VariablesTheme";
 
 export default function Connection() {
   const navigate = useNavigate();
@@ -30,10 +25,6 @@ export default function Connection() {
   const { formData, handleChange, fieldErrors, isFormValid } = useForm({
     email: "",
     password: "",
-  });
-
-  const { isToggled, toggle } = useToggle({
-    showPassword: false,
   });
 
   const { triggerAlert, closeAlert, alertSeverity, alertMessage, openAlert } =

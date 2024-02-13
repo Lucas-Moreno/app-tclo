@@ -9,6 +9,7 @@ interface Props {
   fullWidth?: boolean;
   width?: string;
   onClick?: (event: FormEvent) => Promise<void>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   disabled?: any;
 }
 

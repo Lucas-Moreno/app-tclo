@@ -22,8 +22,10 @@ export async function sendLog(message: string): Promise<void> {
 
   try {
     const data = await cloudwatchlogs.putLogEvents(params).promise();
+    // eslint-disable-next-line no-console
     console.log(data);
   } catch (err) {
+    // eslint-disable-next-line no-console
     console.log(err as Error, (err as Error).stack);
   }
 }
